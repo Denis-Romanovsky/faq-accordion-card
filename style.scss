@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+
+// Colors
+$soft-violet: hsl(273, 75%, 66%);
+$soft-blue: hsl(240, 73%, 65%);
+$soft-red: hsl(14, 88%, 65%);
+$light-gray-blue: hsl(240, 5%, 91%);
+$dark-gray-blue: hsl(240, 6%, 50%);
+$very-dark-gray-blue: hsl(237, 12%, 33%);
+$desaturated-blue:  hsl(238, 29%, 16%);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+html { min-height: 100%; }
+body { background: linear-gradient($soft-violet, $soft-blue); }
+ul { list-style: none; }
+
+
+// ------------------ UTILITY CLASSES ------------------
+
+.hide { display: none; }
+.rotate { transform: rotate(180deg); }
+.bold { font-weight: 700 !important; }
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 800px;
+}
+
+// ------------------ Card and Sides ------------------
+#card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  margin: 140px 1.5rem 40px 1.5rem;
+  padding: 1rem;
+  border-radius: 20px;
+  position: relative;
+  width: 100%;
+
+  // Insert SVG at the top
+  background-image: url('/images/bg-pattern-mobile.svg');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 150px;
+
+  &::before {
+    content: '';
+    background-image: url('/images/illustration-woman-online-mobile.svg');
+    background-size: 100% 100%;
+    display: inline-block;
+
+    // Image Size
+    height: 125px;
+    width: 175px;
+
+    // Positioning
+    top: -90px;
+    left: -10px;
+    position: relative;
+  }
+}
+
+.left-side { display: none; }
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%; // delete either this
+  min-width: 0; // or this
+  padding: .25rem 1rem;
+  margin-top: -4rem;
+
+  .heading {
+    padding: 0;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .list {
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .list-item {
+    margin-bottom: .5rem;
+    border-bottom: 1px solid $light-gray-blue;
+
+    // Dropdown toggler
+    .dropdown {
+      display: flex;
+      align-items: center;
+      padding: .5rem 0;
+      margin-top: .25rem;
+      cursor: pointer;
+    }
+
+    .list-item-heading {
+      padding-bottom: .5rem;
+      font-weight: 400;
+      font-size: 12px;
+      color: $very-dark-gray-blue;
+      flex-grow: 1;
+      line-height: 1rem;
+      margin-right: 1rem;
+
+      &:hover, &.bold:hover { color: $soft-red; }
+    }
+
+    .list-item-arrow { margin-bottom: .5rem; }
+
+    .list-item-text {
+      padding-bottom: 1rem;
+      font-size: 11px;
+      color: $dark-gray-blue;
+      line-height: 1rem;
+      margin-right: 1.5rem;
+    }
+  }
+}
+
+
+@media screen and (min-width: 330px) {
+  #card { margin: 120px 1.5rem 40px 1.5rem; }
+}
+
+
+
+// ---------- INCREASE SVG SIZE ----------
+@media screen and (min-width: 377px) {
+  #card {
+    position: relative;
+    background-size: auto;
+    margin: 140px 1.5rem 40px 1.5rem;
+
+    &::before {
+      content: '';
+      background-image: url('/images/illustration-woman-online-mobile.svg');
+      background-size: 100% 100%;
+      display: inline-block;
+
+      // Image Size
+      height: 190px;
+      width: 265px;
+
+      // Positioning
+      position: relative;
+      top: -122px;
+      left: -13px;
+    }
+  }
+
+  .right-side { margin-top: -5.5rem; }
+}
+
+
+// Increase margin of the card
+@media screen and (min-width: 450px) {
+  #card {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+}
+
+
+
+// ---------------- TABLET (Increase font) ----------------
+@media screen and (min-width: 520px) {
+  .right-side .list-item {
+    .list-item-heading { font-size: 14px; }
+    .list-item-text { font-size: 12px; }
+  }
+}
+
+
+
+// ---------------- DESKTOP ----------------
+@media screen and (min-width: 900px) {
+  body { overflow: hidden; }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 1050px;
+    min-height: 100vh; // min-height: 100vh;
+    position: relative;
+  }
+
+  .img-box {
+    background-image: url('/images/illustration-box-desktop.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    margin-left: 1rem;
+    position: absolute;
+
+    // Position the svg
+    left: -65px;
+    z-index: 1;
+
+    // Prevent from getting out of position when resized vertically
+    top: calc(50% + 40px); // 430px;
+    transform: translateY(-50%);
+  }
+
+  #card {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(400px, 1fr));
+    padding: 3.5rem 1rem;
+    column-gap: 1rem;
+    margin: auto 2.5rem;
+    overflow: hidden;
+
+    // Remove mobile SVG
+    background-image: none;
+
+    // Remove another mobile SVG
+    &::before {
+      content: none;
+      background-image: none;
+    }
+  }
+
+  .left-side {
+    display: block;
+    position: relative;
+
+    .img-desktop-1 {
+      background-image: url('/images/bg-pattern-desktop.svg');
+      background-size: 100% 100%;
+      display: inline-block;
+
+      // Image Size
+      height: 896px; // 816px
+      width: 865px; // 795px
+
+      // Positioning
+      top: -330px; // -280px
+      left: -492px; // -420px
+      position: absolute;
+    }
+
+    .img-desktop-2 {
+      background-image: url('/images/illustration-woman-online-desktop.svg');
+      display: inline-block;
+
+      // Image Size
+      height: 359px; // 359px
+      width: 472px; // 472px
+
+      // Positioning
+      top: -0px;
+      left: -100px;
+      position: relative;
+    }
+
+  }
+
+  .right-side {
+    align-items: flex-start;
+    width: 80%;
+    padding: .25rem 0rem;
+    margin-top: -0;
+
+    .heading { margin-bottom: 1rem; }
+  }
+}

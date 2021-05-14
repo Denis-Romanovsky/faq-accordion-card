@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Kumbh Sans", sans-serif;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  background: linear-gradient(#af67e9, #6565e7);
+}
+
+ul {
+  list-style: none;
+}
+
+.hide {
+  display: none;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.bold {
+  font-weight: 700 !important;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  max-width: 800px;
+}
+
+#card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  margin: 140px 1.5rem 40px 1.5rem;
+  padding: 1rem;
+  border-radius: 20px;
+  position: relative;
+  width: 100%;
+  background-image: url("/images/bg-pattern-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 150px;
+}
+#card::before {
+  content: "";
+  background-image: url("/images/illustration-woman-online-mobile.svg");
+  background-size: 100% 100%;
+  display: inline-block;
+  height: 125px;
+  width: 175px;
+  top: -90px;
+  left: -10px;
+  position: relative;
+}
+
+.left-side {
+  display: none;
+}
+
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  padding: 0.25rem 1rem;
+  margin-top: -4rem;
+}
+.right-side .heading {
+  padding: 0;
+  margin-top: 1rem;
+  text-align: center;
+}
+.right-side .list {
+  width: 100%;
+  padding: 1rem 0;
+}
+.right-side .list-item {
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #e7e7e9;
+}
+.right-side .list-item .dropdown {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin-top: 0.25rem;
+  cursor: pointer;
+}
+.right-side .list-item .list-item-heading {
+  padding-bottom: 0.5rem;
+  font-weight: 400;
+  font-size: 12px;
+  color: #4a4b5e;
+  flex-grow: 1;
+  line-height: 1rem;
+  margin-right: 1rem;
+}
+.right-side .list-item .list-item-heading:hover, .right-side .list-item .list-item-heading.bold:hover {
+  color: #f47c57;
+}
+.right-side .list-item .list-item-arrow {
+  margin-bottom: 0.5rem;
+}
+.right-side .list-item .list-item-text {
+  padding-bottom: 1rem;
+  font-size: 11px;
+  color: #787887;
+  line-height: 1rem;
+  margin-right: 1.5rem;
+}
+
+@media screen and (min-width: 330px) {
+  #card {
+    margin: 120px 1.5rem 40px 1.5rem;
+  }
+}
+@media screen and (min-width: 377px) {
+  #card {
+    position: relative;
+    background-size: auto;
+    margin: 140px 1.5rem 40px 1.5rem;
+  }
+  #card::before {
+    content: "";
+    background-image: url("/images/illustration-woman-online-mobile.svg");
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 190px;
+    width: 265px;
+    position: relative;
+    top: -122px;
+    left: -13px;
+  }
+
+  .right-side {
+    margin-top: -5.5rem;
+  }
+}
+@media screen and (min-width: 450px) {
+  #card {
+    margin-left: 3rem;
+    margin-right: 3rem;
+  }
+}
+@media screen and (min-width: 520px) {
+  .right-side .list-item .list-item-heading {
+    font-size: 14px;
+  }
+  .right-side .list-item .list-item-text {
+    font-size: 12px;
+  }
+}
+@media screen and (min-width: 900px) {
+  body {
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 1050px;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  .img-box {
+    background-image: url("/images/illustration-box-desktop.svg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    margin-left: 1rem;
+    position: absolute;
+    left: -65px;
+    z-index: 1;
+    top: calc(50% + 40px);
+    transform: translateY(-50%);
+  }
+
+  #card {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(400px, 1fr));
+    padding: 3.5rem 1rem;
+    column-gap: 1rem;
+    margin: auto 2.5rem;
+    overflow: hidden;
+    background-image: none;
+  }
+  #card::before {
+    content: none;
+    background-image: none;
+  }
+
+  .left-side {
+    display: block;
+    position: relative;
+  }
+  .left-side .img-desktop-1 {
+    background-image: url("/images/bg-pattern-desktop.svg");
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 896px;
+    width: 865px;
+    top: -330px;
+    left: -492px;
+    position: absolute;
+  }
+  .left-side .img-desktop-2 {
+    background-image: url("/images/illustration-woman-online-desktop.svg");
+    display: inline-block;
+    height: 359px;
+    width: 472px;
+    top: 0px;
+    left: -100px;
+    position: relative;
+  }
+
+  .right-side {
+    align-items: flex-start;
+    width: 80%;
+    padding: 0.25rem 0rem;
+    margin-top: 0;
+  }
+  .right-side .heading {
+    margin-bottom: 1rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
